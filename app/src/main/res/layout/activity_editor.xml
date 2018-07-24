@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/margin_edit_text"
     android:orientation="vertical"
-    android:padding="8dp"
+    android:padding="@dimen/pading_edit_text"
     tools:context=".EditorActivity">
 
     <EditText
@@ -14,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="book name"
+        android:hint="@string/book_name"
         android:inputType="text" />
 
     <EditText
@@ -22,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="price"
+        android:hint="@string/price"
         android:inputType="number" />
 
     <EditText
@@ -30,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="Quantity"
+        android:hint="@string/quantity"
         android:inputType="number" />
 
     <EditText
@@ -38,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="supplier "
+        android:hint="@string/supplier"
         android:inputType="text" />
 
     <EditText
@@ -46,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="phone"
+        android:hint="@string/phone"
         android:inputType="phone" />
 
 </LinearLayout>

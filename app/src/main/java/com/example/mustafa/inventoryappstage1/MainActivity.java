@@ -1,6 +1,5 @@
 package com.example.mustafa.inventoryappstage1;
-import  com.example.mustafa.inventoryappstage1.data.BookContract.BookEntry;
-import  com.example.mustafa.inventoryappstage1.data.BookDbHelper;
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,8 +13,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.mustafa.inventoryappstage1.data.BookContract;
-
-
+import com.example.mustafa.inventoryappstage1.data.BookContract.BookEntry;
+import com.example.mustafa.inventoryappstage1.data.BookDbHelper;
 
 public class MainActivity extends AppCompatActivity {
     private BookDbHelper mDbHelper;
@@ -24,26 +23,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                Intent intent=new Intent(MainActivity.this,EditorActivity.class);
+                Intent intent = new Intent(MainActivity.this, EditorActivity.class);
                 startActivity(intent);
 
             }
         });
         mDbHelper = new BookDbHelper(this);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
         displayDatabaseInfo();
     }
+
     private void displayDatabaseInfo() {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
         String[] projection = {
@@ -52,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 BookEntry.COLUMN_BOOK_QUANTITY,
                 BookEntry.COLUMN_BOOK_PRICE,
                 BookEntry.COLUMN_BOOK_PHONE,
-                BookEntry.COLUMN_BOOK_SUPPLIER };
+                BookEntry.COLUMN_BOOK_SUPPLIER};
 
         Cursor cursor = db.query(
                 BookContract.BookEntry.TABLE_NAME,   // The table to query
@@ -63,11 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 null,                  // Don't filter by row groups
                 null);                   // The sort order
 
-        TextView displayView = (TextView) findViewById(R.id.text_view_book);
+        TextView displayView = findViewById(R.id.text_view_book);
 
         try {
-
-            displayView.setText("The books table contains " + cursor.getCount() + " books.\n\n");
+            displayView.setText(getString(R.string.books) + cursor.getCount() + " books.\n\n");
             displayView.append(BookContract.BookEntry._ID + " - " +
                     BookEntry.COLUMN_BOOK_NAME + " - " +
                     BookEntry.COLUMN_BOOK_QUANTITY + " - " +
@@ -83,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
             int supplierColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_SUPPLIER);
             // Iterate through all the returned rows in the cursor
             while (cursor.moveToNext()) {
-
                 int currentID = cursor.getInt(idColumnIndex);
                 String currentName = cursor.getString(nameColumnIndex);
                 String currentPhone = cursor.getString(phoneColumnIndex);
@@ -107,12 +102,12 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(BookEntry.COLUMN_BOOK_NAME, "go to hile");
-        values.put(BookEntry.COLUMN_BOOK_QUANTITY,2);
+        values.put(BookEntry.COLUMN_BOOK_QUANTITY, 2);
         values.put(BookEntry.COLUMN_BOOK_PRICE, 5);
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER, "mick");
         values.put(BookEntry.COLUMN_BOOK_PHONE, "012345678");
 
-        long newRowId = db.insert(BookEntry.TABLE_NAME, null, values);
+
     }
 
     @Override
