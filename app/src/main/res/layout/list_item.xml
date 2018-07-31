@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/dummyImage"
+        android:layout_height="@dimen/dummyImage"
+        android:contentDescription="@string/picture_of_the_book"
+        android:scaleType="fitXY"
+        tools:src="@mipmap/ic_right" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/quantity"
+        android:layout_alignBottom="@+id/quantity"
+        android:layout_marginLeft="@dimen/marginForText"
+        android:layout_marginStart="@dimen/marginForText"
+        android:layout_toEndOf="@+id/image"
+        android:layout_toRightOf="@+id/image"
+        android:textColor="@color/darkGray"
+        android:textSize="@dimen/textSizeOfDummyData"
+        tools:text="Spider Man" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/marginRight"
+        android:layout_marginTop="@dimen/margin"
+        android:textColor="@color/darkGray"
+        android:textSize="@dimen/textSizeOfDummyData"
+        tools:text="5"
+        android:layout_marginEnd="@dimen/marginRight"
+        tools:ignore="RelativeOverlap" />
+
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="@dimen/margin"
+        android:textColor="@color/lightGray"
+        android:textSize="@dimen/textSizeOfDummyData"
+        tools:text="20.00" />
+
+    <Button
+        android:id="@+id/sell_Button"
+        android:layout_width="@dimen/widthOfSellButton"
+        android:layout_height="@dimen/HeightOfSellButton"
+        android:layout_alignBaseline="@+id/price"
+        android:layout_alignBottom="@+id/price"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/marginOfSellButton"
+        android:layout_marginRight="@dimen/marginOfSellButton"
+        android:text="@string/sale"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold|italic" />
+</RelativeLayout>
